@@ -1,53 +1,25 @@
-import { StatusBar } from "expo-status-bar";
-import { StyleSheet, Text, View, TextInput, Button } from "react-native";
+import Goals from "../../src/screens/Goals";
+import Profile from "../../src/screens/Profile";
+import { NavigationContainer } from "@react-navigation/native";
 
+import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 
-// export default function Home() {
-//   return (
-//     <View style={styles.appContainer}>
-//       <View style={styles.inputContainer}>
-//         <TextInput placeholder='Your course goal!' />
-//         <Button title= "Add Goal" />
-//       </View>
-//       <Text>List of goals</Text>
-//     </View>
-//   );
-// }
+// const Stack = createNativeStackNavigator();
+const Tab = createBottomTabNavigator();
 
-// const styles = StyleSheet.create({
-//   appContainer: {
-//
-//   },
-//   inputContainer: {
-//     flexDirection: "row",
-//   }
-// });
-
-const Home = () => (
-  <View style={styles.appContainer}>
-    <View style={styles.inputContainer}>
-      <TextInput placeholder="Your course goal!" />
-      <Button title="Add Goal" 
-      color="#ff0000"/>
-    </View>
-    <Text style={styles.title}>List of goals</Text>
-    <StatusBar style="auto" />
-  </View>
-);
-
-const styles = StyleSheet.create({
-  appContainer: {
-    padding: 50,
-
-  },
-  inputContainer: {
-    flexDirection: "row",
-  },
-  title: {
-    color: "#000000",
-    fontWeight: "bold",
-    fontSize: 20,
-  },
-});
-
-export default Home;
+export default function App() {
+  return (
+    <Tab.Navigator>
+      <Tab.Screen
+        options={{ headerShown: false }}
+        name="Profile"
+        component={Profile}
+      />
+      <Tab.Screen
+        options={{ headerShown: false }}
+        name="Goals"
+        component={Goals}
+      />
+    </Tab.Navigator>
+  );
+}
