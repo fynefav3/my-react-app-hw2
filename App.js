@@ -1,31 +1,23 @@
-import { StatusBar } from "expo-status-bar";
-import { StyleSheet, Text, View, Button } from "react-native";
 
-export default function App() {
+import Home from './src/screens/Home';
+import Splash from './src/screens/Splash';
+import * as React from 'react';
+import { View, Text } from 'react-native';
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+
+
+const Stack = createNativeStackNavigator();
+
+function App() {
   return (
-    <View style={styles.container}>
-      <Button
-        style={styles.configButton}
-        onPress={() => Alert.alert("Simple Button pressed")}
-        color= "#ffff45"
-        title="Click Here"
-      />
-      <StatusBar style="auto" />
-    </View>
+    <NavigationContainer>
+      <Stack.Navigator>
+        <Stack.Screen  options={{ headerShown: false }} name="Splash" component={Splash} />
+        <Stack.Screen  options={{ headerShown: false }} name="Home" component={Home} />
+      </Stack.Navigator>
+    </NavigationContainer>
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "#f00",
-    alignItems: "center",
-    justifyContent: "center",
-  },
-  configButton: {
-    borderWidth: 5,
-    borderColor: "#000000",
-    padding: 12,
-    backgroundColor: "black",
-  },
-});
+export default App;
