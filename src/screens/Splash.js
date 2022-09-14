@@ -1,17 +1,12 @@
 import { StatusBar } from "expo-status-bar";
 import { StyleSheet, Text, View, Button, Image } from "react-native";
 import React, { Component } from "react";
-import { NavigationContainer } from '@react-navigation/native';
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
-
 
 export default class SplashScreen extends Component {
-
   constructor(props) {
     super(props);
     this.state = {};
   }
-
 
   componentDidMount() {
     setTimeout(() => {
@@ -21,27 +16,20 @@ export default class SplashScreen extends Component {
 
   render() {
     return (
-      <View style={{ backgroundColor: "white" }}>
+      <View style={{ backgroundColor: "#ffffff", flex:1 }}>
         <View style={{ flex: 1, paddingTop: 50 }}>
-          <Image source={require('../../assets/logo.png')}
-          style={{ width: 500, height: 400, resizeMode: 'contain' }} />
+          <Image
+            source={require("../../assets/logo.png")}
+            style={{
+              width: '100%',
+              height: '80%',
+              resizeMode: "contain",
+              justifyContent: "center",
+              alignItems: "center",
+            }}
+          />
         </View>
       </View>
     );
   }
 }
-
-// const styles = StyleSheet.create({
-//   container: {
-//     flex: 1,
-//     backgroundColor: "#f00",
-//     alignItems: "center",
-//     justifyContent: "center",
-//   },
-//   configButton: {
-//     borderWidth: 5,
-//     borderColor: "#000000",
-//     padding: 12,
-//     backgroundColor: "black",
-//   },
-// });
